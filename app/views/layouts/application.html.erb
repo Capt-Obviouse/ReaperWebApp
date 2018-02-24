@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang='en'>
   <head>
-    <title>Reaper Studios</title>
+    <title><%= @title %></title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Krona+One' %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -21,6 +21,7 @@
           if(x > 120)
           {
             document.getElementById("nav").style.height = "50px";
+            document.getElementById("nav").style.lineHeight = "50px";
             imgHeight = imgHeight/2;
             imgWidth = imgWidth/2;
             document.getElementById("header-logo").style.height = imgHeight + 'px';
@@ -31,6 +32,7 @@
             if(100-x > 49)
             {
               document.getElementById("nav").style.height = 100 - x + 'px';
+              document.getElementById("nav").style.lineHeight = 100 - x + 'px';
               document.getElementById("header-logo").style.height = 100 - x + 'px';
               document.getElementById("header-logo").style.width = 'auto';
             }
@@ -39,7 +41,7 @@
         else
         {
             x = document.documentElement.scrollTop;
-            console.log(x);
+            document.getElementById("nav").style.lineHeight = "100px";
             document.getElementById("nav").style.height = "100px";
             document.getElementById("header-logo").style.height = "100px";
             document.getElementById("header-logo").style.width = "81px";
@@ -52,18 +54,18 @@
       <header>
         <nav class='shadow wrap' id='nav'>
           <div class='left'>
-            <ul class='float-right'>
+            <ul class='float-right links'>
               <li><%= link_to "Home", root_path %></li>
               <li><%= link_to "About", pages_about_path %></li>
-              <li><a href='#'>Get a Quote</a></li>
+              <li><%= link_to "Get a Quote", pages_contact_path %></li>
             </ul>
           </div>
           <div class='center'>
             <%= image_tag('reaper_logo.png', id: 'header-logo', class: 'header-logo') %>
           </div>
           <div class='right'>
-            <ul class='float-left'>
-              <li><%= link_to "Services", root_path(:anchor => 'services') %></li>
+            <ul class='float-left links'>
+              <li><%= link_to "Services", pages_services_path %></li>
               <li><%= link_to "Portfolio", pages_portfolio_path %></li>
               <li><%= link_to "Contact Us", pages_contact_path %></li>
             </ul>
