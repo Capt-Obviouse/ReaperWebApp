@@ -1,0 +1,12 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	ignorecase = true
+	precomposeunicode = true
+[remote "origin"]
+	url = git@github.com:Capt-Obviouse/ReaperWebApp.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[atomGithub]
+	historySha = a329e5e005da3aa06d913b84ae53723e69f17744
