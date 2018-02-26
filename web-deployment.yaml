@@ -1,12 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  annotations:
-    kompose.cmd: kompose convert
-    kompose.version: 1.9.0 ()
-  creationTimestamp: null
   labels:
-    io.kompose.service: web
   name: web
 spec:
   replicas: 1
@@ -27,15 +22,12 @@ spec:
         - name: DB_PASSWORD
           value: password
         - name: DB_USER
-          value: root
+          value: webuser
         image: gcr.io/basicproject-196205/rs:dev
         name: web
         ports:
         - containerPort: 3000
         resources: {}
-        volumeMounts:
-        - mountPath: /usr/src/app/
-          name: web-claim0
       restartPolicy: Always
       volumes:
       - name: web-claim0
