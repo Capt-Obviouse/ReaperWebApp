@@ -2,12 +2,16 @@ FROM ruby:2.3
 
 RUN apt-get update -qq
 
-RUN mkdir /webapp
-WORKDIR /webapp
+RUN mkdir /usr/src/app
+WORKDIR /usr/src/app
 
-ADD Gemfile /webapp/Gemfile
-ADD Gemfile.lock /webapp/Gemfile.lock
+COPY Gemfile /usr/src/app/Gemfile
+COPY Gemfile.lock /usr/src/app/Gemfile.lock
 
 RUN bundle install
 
-ADD . /webapp
+ADD . /usr/src/app/
+
+EXPOSE 3000
+
+CMD ["rails", "s", "-b", "0.0.0.0"]
