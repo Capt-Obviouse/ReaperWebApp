@@ -13,6 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+// Colors
+// Yellow: cb9831 rgb(203,152,49)
+
+
 /* reset styles */
 html {
   height: 100%;
@@ -320,4 +325,8 @@ footer {
   border-radius: 100px;
   -webkit-border-radius: 100px;
   -moz-border-radius: 100px;
+}
+
+.yellow {
+  color: rgb(203,152,49);
 }
