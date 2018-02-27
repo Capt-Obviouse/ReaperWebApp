@@ -312,3 +312,12 @@ footer {
 @page {
   margin: 0.75in;
 }
+
+.circular-img {
+  width: 200px;
+  height: 200px;
+  display: block;
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+}
