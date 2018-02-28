@@ -23,7 +23,9 @@ spec:
           value: password
         - name: DB_USER
           value: webuser
-        image: gcr.io/basicproject-196205/rs:updates
+        - name: RAILS_ENV
+          value: production
+        image: gcr.io/basicproject-196205/rs:1.0.1
         name: web
         ports:
         - containerPort: 3000

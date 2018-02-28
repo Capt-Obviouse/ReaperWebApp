@@ -12,12 +12,12 @@ services:
     ports:
       - "3307:3306"
   web:
-    image: rs:updates
+    image: rs:1.0.1
     build: .
     volumes:
       - ".:/usr/src/app/"
     ports:
-      - "80:3000"
+      - "3000:3000"
     environment:
       DB_USER: root
       DB_NAME: webapp

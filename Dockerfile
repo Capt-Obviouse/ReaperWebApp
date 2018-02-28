@@ -13,5 +13,5 @@ RUN bundle install
 ADD . /usr/src/app/
 
 EXPOSE 3000
-
+CMD ["rm", "/tmp/pids/server.pid"]
 CMD ["rails", "s", "-b", "0.0.0.0"]
