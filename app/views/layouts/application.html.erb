@@ -2,75 +2,45 @@
 <html lang='en'>
   <head>
     <title><%= @title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Krona+One' %>
     <%= stylesheet_link_tag 'application', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script>
-      window.onscroll = function () {
-        myFunction()
-      };
-      var x = 0;
-      function myFunction()
-      {
-        if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0)
-        {
-          x = document.documentElement.scrollTop;
-          var imgHeight = 100;
-          var imgWidth = 81;
-          if(x > 120)
-          {
-            document.getElementById("nav").style.height = "50px";
-            document.getElementById("nav").style.lineHeight = "50px";
-            imgHeight = imgHeight/2;
-            imgWidth = imgWidth/2;
-            document.getElementById("header-logo").style.height = imgHeight + 'px';
-            document.getElementById("header-logo").style.width = imgWidth + 'px';
-          }
-          else
-          {
-            if(100-x > 49)
-            {
-              document.getElementById("nav").style.height = 100 - x + 'px';
-              document.getElementById("nav").style.lineHeight = 100 - x + 'px';
-              document.getElementById("header-logo").style.height = 100 - x + 'px';
-              document.getElementById("header-logo").style.width = 'auto';
-            }
-          }
-        }
-        else
-        {
-            x = document.documentElement.scrollTop;
-            document.getElementById("nav").style.lineHeight = "100px";
-            document.getElementById("nav").style.height = "100px";
-            document.getElementById("header-logo").style.height = "100px";
-            document.getElementById("header-logo").style.width = "81px";
-        }
-      }
-    </script>
+
   </head>
   <body>
+    <p class='skipnavigation'><a href="#contentstart">Skip Navigation</a></p>
     <div id='container'>
       <header>
-        <nav class='shadow wrap' id='nav'>
-          <div class='left'>
-            <ul class='float-right links'>
+        <nav id='nav' class='topnav'>
+          <span>
+            <%= image_tag('reaper_logo.png', :id=> 'header-logo') %>
+          </span>
+          <ul>
+            <li id='mobileMenu'><a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a></li>
+            <li><%= link_to "Home", root_path %></li>
+            <li><%= link_to "About", pages_about_path %></li>
+            <li><%= link_to "Get a Quote", pages_contact_path %></li>
+            <li><%= link_to "Services", pages_services_path %></li>
+            <li><%= link_to "Portfolio", pages_portfolio_path %></li>
+            <li><%= link_to "Contact Us", pages_contact_path %></li>
+          </ul>
+        </nav>
+        <nav id='nav' class='topnav-full'>
+            <ul class='float-left'>
+              <li id='mobileMenu'><a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a></li>
               <li><%= link_to "Home", root_path %></li>
               <li><%= link_to "About", pages_about_path %></li>
               <li><%= link_to "Get a Quote", pages_contact_path %></li>
             </ul>
-          </div>
-          <div class='center'>
-            <%= image_tag('reaper_logo.png', id: 'header-logo', class: 'header-logo') %>
-          </div>
-          <div class='right'>
-            <ul class='float-left links'>
+            <%= image_tag('reaper_logo.png', :id => 'header-logo-full') %>
+            <ul class='float-right'>
               <li><%= link_to "Services", pages_services_path %></li>
               <li><%= link_to "Portfolio", pages_portfolio_path %></li>
               <li><%= link_to "Contact Us", pages_contact_path %></li>
             </ul>
-          </div>
         </nav>
       </header>
       <div id='body'>
